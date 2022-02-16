@@ -1,5 +1,5 @@
 require("@babel/polyfill");
-import Axios from "axios";
+import axios from "axios";
 
 export default class Search {
     constructor(query) {
@@ -7,8 +7,9 @@ export default class Search {
     }
     async doSearch() {
         try {
-            let result = await Axios("https://forkify-api.herokuapp.com/api/search?q=" + this.query);
+            let result = await axios("https://forkify-api.herokuapp.com/api/search?q=" + this.query);
             this.recipes = result.data.recipes;
+            // console.log(this.recipes);
             return this.recipes;
         } catch (error) {
             alert("asuudal garlaa:" + error);

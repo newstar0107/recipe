@@ -5,7 +5,6 @@ module.exports = {
     entry: "./src/js/index.js",
     mode: "development",
     output: {
-        // filename: "[name].[contenthash].js",
         filename: "./js/main.js",
         path: path.resolve(__dirname, "docs"),
         // clean: true,
@@ -18,7 +17,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: [["@babel/preset-env", { targets: "defaults" }]],
+                        presets: [["@babel/preset-env"]],
                     },
                 },
             },
@@ -26,7 +25,7 @@ module.exports = {
     },
     devtool: "inline-source-map",
     devServer: {
-        static: "./d",
+        static: "./docs",
     },
     plugins: [
         new HtmlWebpackPlugin({
